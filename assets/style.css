@@ -1,0 +1,91 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  width: 100%;
+  height: auto;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 300;
+  overflow: hidden;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+ul {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+}
+li.list-item {
+  height: 200px;
+}
+a {
+  height: 100%;
+  text-decoration: none;
+  font-size: 3rem;
+  color: #000;
+  overflow: hidden;
+  transition: ease 0.5s all;
+  display: block;
+  margin: 0.5rem 0;
+  padding: 15px 30px 15px 90px;
+  text-shadow: 3px 5px 10px rgba(255, 255, 255, 1);
+}
+
+a span {
+  position: relative;
+  z-index: 1;
+}
+a:hover span {
+  z-index: 19;
+  transition: color 0.5s all;
+  padding-left: 1rem;
+  color: #ccc;
+  text-shadow: 3px 5px 10px rgba(0, 0, 0, 1);
+}
+.list-img-wrapper {
+  opacity: 0;
+  width: 400px;
+  height: 400px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  border-radius: 50%;
+  transform: translate(-50%, 0);
+  transition: transform, opacity, left ease-in-out;
+  pointer-events: none;
+}
+
+.list-img {
+  pointer-events: none;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  transition: transform 800ms ease;
+  transform: scale(0.5);
+}
+a:hover .list-img-wrapper {
+  opacity: 1;
+  z-index: 2;
+  transform: translate(-50%, -50%);
+  transition-property: transform, opacity, top, left;
+  transition-duration: 400ms;
+}
+a:hover .list-img {
+  opacity: 1;
+  transform: scale(1);
+  transition: transform 800ms ease;
+}
